@@ -189,7 +189,7 @@ p {
   display: none;
 }
 .cards .card ul li .card-suit {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 .cards .card ul li.show {
   display: block;
