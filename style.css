@@ -189,7 +189,12 @@ p {
   display: none;
 }
 .cards .card ul li .card-suit {
-  font-size: 3rem;
+  font-size: 2rem;
+}
+@media (min-width: 768px) {
+  .cards .card ul li .card-suit {
+    font-size: 3rem;
+  }
 }
 .cards .card ul li.show {
   display: block;
