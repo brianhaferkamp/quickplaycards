@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+html, body {
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  color: #333;
+}
+
+.app {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+.cards-wrapper {
+  margin: 2rem 0.5rem;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  width: 100%;
+}
+@media (min-width: 650px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+}
+
+.game-mode {
+  justify-self: end;
+  grid-column: span 3;
+  margin-bottom: 2rem;
+}
+
+.action-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 1rem;
+}
+@media (min-width: 580px) {
+  .action-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.situation-cards p {
+  font-size: 0.8rem;
+  margin: 0 0 0.3rem;
+}
+.situation-cards ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.situation-cards ul li {
+  font-size: 0.8rem;
+  display: none;
+}
+.situation-cards ul li .lineup-advance,
+.situation-cards ul li .wildcard {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+@media (min-width: 450px) {
+  .situation-cards ul li .lineup-advance,
+.situation-cards ul li .wildcard {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+.situation-cards ul li.show {
+  display: block;
+}
+.situation-cards .card {
+  height: 150px;
+  width: 100px;
+  background: #fff;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  border-radius: 5px;
+}
+@media (min-width: 450px) {
+  .situation-cards .card {
+    height: 175px;
+    width: 125px;
+  }
+}
+@media (min-width: 580px) {
+  .situation-cards .card {
+    height: 200px;
+    width: 150px;
+  }
+}
+.situation-cards .card:hover {
+  cursor: pointer;
+}
+.situation-cards .card .wildcard {
+  font-size: 1.5rem;
+}
+.situation-cards .card .play-results {
+  display: inline-block;
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+.situation-cards .card .diamond {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+}
+.situation-cards .card .diamond .shape {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  transform: rotate(45deg);
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.situation-cards .card .diamond .shape .dot {
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+}
+.situation-cards .card .diamond .shape .dot.first {
+  top: -5px;
+  left: 35px;
+}
+.situation-cards .card .diamond .shape .dot.second {
+  top: -5px;
+  left: -5px;
+}
+.situation-cards .card .diamond .shape .dot.third {
+  top: 35px;
+  left: -5px;
+}
+
+.cards {
+  position: relative;
+}
+.cards .card-result .card-suit {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.cards p {
+  margin: 0 0 0.3rem;
+}
+.cards .card {
+  height: 250px;
+  width: 175px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url(https://assets.codepen.io/495197/card_back_blue_alt.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid #999;
+  position: relative;
+}
+.cards .card:hover {
+  cursor: pointer;
+}
+.cards .card.no-bg {
+  background-image: url() !important;
+  border: 1px solid black;
+}
+.cards .card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cards .card ul li {
+  font-size: 5rem;
+  display: none;
+}
+.cards .card ul li .card-suit {
+  font-size: 2rem;
+}
+.cards .card ul li.show {
+  display: block;
+}
+
+.card-style {
+  grid-column: 1/3;
+  margin: 1rem 0 0;
+}
+.card-style ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  align-items: center;
+  justify-content: end;
+}
+.card-style ul li.choose-card-style {
+  width: 50px;
+  height: 25px;
+  border-radius: 5px;
+  border: 2px solid #eee;
+}
+.card-style ul li.choose-card-style.active {
+  border: 2px solid black;
+}
+.card-style ul li:nth-child(even) {
+  margin: 0 0.5rem;
+}
+.card-style ul li:nth-child(1) {
+  font-size: 0.8rem;
+}
+.card-style ul li:nth-child(2) {
+  background-image: url(https://assets.codepen.io/495197/card_back_blue_alt.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#draw {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
