@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Quick Play Baseball - Full Play Card Flipper</title>
+  <title>CodePen - Quick Play Baseball Multiple Decks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="./style.css">
@@ -12,6 +12,120 @@
 <!-- partial:index.partial.html -->
 <div class="app">
   <div class="cards-wrapper">
+    <div class="modes">
+      <p>Game Mode</p>
+      <select class="mode-select">
+        <option>Medium Play</option>
+        <option>Full Play</option>
+      </select>
+    </div>
+    <div class="situation-cards">
+      <P>Situation Cards</P>
+      <div class="card">
+        <ul>
+          <li class="show">Click to start</li>
+          <li class="s-card-1">
+            <div class="diamond">
+              <div class="shape"></div>
+              <p>0 Outs</p>
+            </div><span class="lineup-advance">1</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-2"> 
+            <div class="diamond">
+              <div class="shape"></div>
+              <p>1 Out</p><span class="play-results play-results-1">G63</span><span class="play-results play-results-2">G13</span>
+            </div><span class="lineup-advance">2</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-3"> 
+            <div class="diamond">
+              <div class="shape"></div>
+              <p>2 Outs</p><span class="play-results play-results-1">F8 | G43</span><span class="play-results play-results-2">1B | G643</span>
+            </div><span class="lineup-advance">3</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-4">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot second"></div>
+              </div>
+              <p>0 Outs</p><span class="play-results play-results-1">2B</span><span class="play-results play-results-2">BB(SB)</span>
+            </div><span class="lineup-advance">2</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-5">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot third"></div>
+              </div>
+              <p>1 Out</p><span class="play-results play-results-1">2B | G31</span><span class="play-results play-results-2">1B(SB) | G3u</span>
+            </div><span class="lineup-advance">3</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-6">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot second"></div>
+              </div>
+              <p>2 Outs</p><span class="play-results play-results-1">BB | K | G23</span><span class="play-results play-results-2">F7 | 1B | G43</span>
+            </div><span class="lineup-advance">4</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-7">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot first"></div>
+                <div class="dot second"></div>
+              </div>
+              <p>0 Outs</p><span class="play-results play-results-1">1B | BB</span><span class="play-results play-results-2">2B | BB</span>
+            </div><span class="lineup-advance">3</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-8">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot first"></div>
+                <div class="dot third"></div>
+              </div>
+              <p>1 Outs</p><span class="play-results play-results-1">1B | 1B* | K</span><span class="play-results play-results-2">FO2 | 3B | BB</span>
+            </div><span class="lineup-advance">4</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-9">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot first"></div>
+                <div class="dot second"></div>
+              </div>
+              <p>2 Outs</p><span class="play-results play-results-1">2B | K | BB | F7</span><span class="play-results play-results-2">1B | F8 | F7 | 1B</span>
+            </div><span class="lineup-advance">5</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-10">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot first"></div>
+                <div class="dot second"></div>
+                <div class="dot third"></div>
+              </div>
+              <p>0 Outs</p><span class="play-results play-results-1">2B | 1B | BB</span><span class="play-results play-results-2">E5 | BB | 1B</span>
+            </div><span class="lineup-advance">4</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-11">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot first"></div>
+                <div class="dot second"></div>
+                <div class="dot third"></div>
+              </div>
+              <p>1 Out</p><span class="play-results play-results-1">G53 | 1B | 1B* | BB</span><span class="play-results play-results-2">BB | 1B* | F9 | BB</span>
+            </div><span class="lineup-advance">5</span><span class="wildcard">*</span>
+          </li>
+          <li class="s-card-12">
+            <div class="diamond">
+              <div class="shape">
+                <div class="dot first"></div>
+                <div class="dot second"></div>
+                <div class="dot third"></div>
+              </div>
+              <p>2 Outs</p><span class="play-results play-results-1">1B | F9 | 2B | K | BB</span><span class="play-results play-results-2">K | G63 | 1B | 1B | BB</span>
+            </div><span class="lineup-advance">6</span><span class="wildcard">*</span>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="cards">
       <div class="card">
         <ul>

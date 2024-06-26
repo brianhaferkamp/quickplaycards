@@ -1,8 +1,98 @@
+// init
+
+var gameMode = "medium";
+
 // init quick play functions
 
 // drawPartialDeck();
-// situationCards();
+situationCards();
 // hitCards();
+
+//------------------------------
+// Situation Cards
+//------------------------------
+
+function situationCards() {
+  $(".situation-cards .show").show();
+  $(".card").removeClass("no-bg");
+  $(".card ul li").removeClass("show");
+
+  $(".situation-cards").on("click", function () {
+    var $this = $(this);
+
+    $(".situation-cards .card").hide();
+
+    // random roll
+
+    var result;
+
+    // roll the dice
+    function rollSituationDice() {
+      var dice = {
+        sides: 12,
+        roll: function () {
+          var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+          return randomNumber;
+        }
+      };
+
+      result = dice.roll();
+      // console.log(result);
+    }
+
+    rollSituationDice();
+
+    // hide prev result
+
+    // remove .show from all cards
+    $(".card ul li").removeClass("show");
+
+    // show new result
+
+    // show random situation card
+    $(".s-card-" + result).addClass("show");
+
+    // roll for wildcard
+    wildcard();
+
+    $(".card").removeClass("no-bg");
+
+    $(".situation-cards .card").fadeIn();
+  });
+}
+
+// wildcard = choose your batter
+function wildcard() {
+  var currCard = $(".situation-cards").find(".show");
+  // console.log(currCard);
+
+  var wildcardResult;
+
+  // roll the dice
+  function rollWildcardDice() {
+    var dice = {
+      sides: 100,
+      roll: function () {
+        var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+        return randomNumber;
+      }
+    };
+
+    wildcardResult = dice.roll();
+    console.log(wildcardResult);
+  }
+
+  rollWildcardDice();
+
+  if (wildcardResult < 11) {
+    // console.log("wildcard result!");
+    $(currCard).find(".wildcard").prop("hidden", false);
+    $(currCard).find(".lineup-advance").prop("hidden", true);
+  } else if (wildcardResult > 10) {
+    $(currCard).find(".wildcard").prop("hidden", true);
+    $(currCard).find(".lineup-advance").prop("hidden", false);
+  }
+}
 
 //------------------------------
 // Draw deck
@@ -130,6 +220,7 @@ function drawFullDeck() {
   var suit;
   cardSuit(cardSuitPlaceholder);
 
+  $(".card-result").removeClass("show");
   $(".card-" + result).addClass("show");
   $(".card").addClass("no-bg");
 
@@ -144,7 +235,7 @@ function cardSuit(cardSuitPlaceholder) {
   // roll the dice
   function rollSuitDice() {
     var dice = {
-      sides: 8,
+      sides: 100,
       roll: function () {
         var randomNumber = Math.floor(Math.random() * this.sides) + 1;
         return randomNumber;
@@ -159,13 +250,13 @@ function cardSuit(cardSuitPlaceholder) {
   // show new result
 
   // show random situation card
-  if (result == 1 || result == 2) {
+  if (result > 0 && result <= 25) {
     suit = "<span>&spades;</span>";
-  } else if (result == 3 || result == 4) {
+  } else if (result > 25 && result <= 50) {
     suit = '<span style="color:red;">&hearts;</span>';
-  } else if (result == 5 || result == 6) {
+  } else if (result > 50 && result <= 75) {
     suit = "<span>&clubs;</span>";
-  } else if (result == 7 || result == 8) {
+  } else if (result > 75 && result <= 100) {
     suit = '<span style="color:red;">&diams;</span>';
   }
 
@@ -173,13 +264,36 @@ function cardSuit(cardSuitPlaceholder) {
   // console.log(suit);
 }
 
-function cardDraw() {
-  $(".situation-cards .show").show();
+$(".mode-select").on("change", function () {
+  var mode = $(this).val();
+  // console.log(mode);
+
+  if (mode == "Medium Play") {
+    gameMode = "medium";
+    $(".situation-cards").show();
+    $(".cards-wrapper").css({
+      "grid-template-columns": "1fr 1fr"
+    });
+    $("#draw").css({
+      "grid-column": "2"
+    });
+  } else if (mode == "Full Play") {
+    gameMode = "full";
+    $(".situation-cards").hide();
+    $(".cards-wrapper").css({
+      "grid-template-columns": "1fr"
+    });
+    $("#draw").css({
+      "grid-column": "1"
+    });
+  }
+
+  $(".card ul li").removeClass("show");
+  $(".card-result").removeClass("show");
   $(".card").removeClass("no-bg");
-}
+  // $(".situation-cards .show").show();
+});
 
 $("#draw").on("click", function () {
-  $(".card ul li").removeClass("show");
-
   drawFullDeck();
 });

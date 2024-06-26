@@ -22,7 +22,7 @@ p {
 }
 @media (min-width: 650px) {
   .cards-wrapper {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
   }
 }
@@ -172,9 +172,6 @@ p {
   border: 1px solid #999;
   position: relative;
 }
-.cards .card:hover {
-  cursor: pointer;
-}
 .cards .card.no-bg {
   background-image: url() !important;
   border: 1px solid black;
@@ -234,7 +231,19 @@ p {
   background-position: center;
 }
 
+.modes {
+  grid-column: 1/3;
+  justify-self: end;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+.modes p {
+  margin-right: 1rem;
+}
+
 #draw {
   font-size: 1.5rem;
   margin-top: 1rem;
+  grid-column: 2;
 }
