@@ -1,4 +1,4 @@
-# quickplaycards
+# Quick Play Baseball Card Flipper
 An app that can be used to play Quick Play Baseball, a card-based tabletop baseball game from The Clark & Addison Gaming Co.
 
 The app is meant to be used with Quick Play Baseball. You can learn more about the game and purchase Quick Play seasons here: [https://clarkandaddisongaming.com/quick-play-baseball](https://clarkandaddisongaming.com/quick-play-baseball).
